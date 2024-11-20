@@ -18,10 +18,17 @@ public class Customer extends Thread {
     public void run() {
         for (int i = 0; i < vegetablesAmount; i++) {
             try {
-                restaurant.eatVegetable();
-
-                // aqui agrega a un array de uso compartido :)
-            } catch (Exception e) {
+                if (restaurant.isWarehouseFull() != 0) {
+                    int number = (int) (Math.random() * 3) + 1;
+                    Thread.sleep(number * 1000);
+                    restaurant.eatVegetable();
+                    System.out.println(this.getId() + " ha consumido una verdura");
+                } else {
+                    Thread.sleep(1000);
+                    i--;
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
         }
