@@ -25,7 +25,8 @@ public class Farmer extends Thread {
                     int number = (int) (Math.random() * 3) + 1;
                     sleep(number * 1000);
                     restaurant.addVegetable(vegetable);
-                    System.out.printf("Se ha producido una nueva verdura %s por el granjero %s", vegetable, this.name);
+                    System.out.printf("Se ha producido una nueva verdura %s por el granjero %s%n", vegetable,
+                            this.name);
 
                 } else {
                     Thread.sleep(1000);
