@@ -29,4 +29,14 @@ public class Restaurant {
         return vegetable;
     }
 
+    public int isWarehouseFull() {
+        int space = 0;
+        for (int i = 0; i < warehouse.length; i++) {
+            if (warehouse[i] == null) {
+                space++;
+            }
+        }
+        return space;
+    }
+
 }
