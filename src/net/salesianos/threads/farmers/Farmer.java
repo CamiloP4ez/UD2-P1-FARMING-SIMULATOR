@@ -6,11 +6,13 @@ import net.salesianos.utils.Vegetables;
 public class Farmer extends Thread {
     private int vegetablesAmount;
     private Restaurant restaurant;
+    private String name;
 
-    public Farmer(int vegetablesAmount, Restaurant restaurant) {
+    public Farmer(int vegetablesAmount, Restaurant restaurant, String name) {
         super();
         this.vegetablesAmount = vegetablesAmount;
         this.restaurant = restaurant;
+        this.name = name;
 
     }
 
@@ -23,6 +25,7 @@ public class Farmer extends Thread {
                     int number = (int) (Math.random() * 3) + 1;
                     sleep(number * 1000);
                     restaurant.addVegetable(vegetable);
+                    System.out.printf("Se ha producido una nueva verdura %s por el granjero %s", vegetable, this.name);
 
                 } else {
                     Thread.sleep(1000);
