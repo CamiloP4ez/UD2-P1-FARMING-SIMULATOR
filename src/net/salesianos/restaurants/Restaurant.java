@@ -8,6 +8,10 @@ public class Restaurant {
         this.warehouse = new String[size];
     }
 
+    public int getwarehouseSpace() {
+        return warehouse.length;
+    }
+
     public synchronized void addVegetable(String vegetable) {
         for (int i = 0; i < warehouse.length; i++) {
             if (warehouse[i] == null) {
@@ -29,7 +33,7 @@ public class Restaurant {
         return vegetable;
     }
 
-    public int isWarehouseFull() {
+    public int availableSpace() {
         int space = 0;
         for (int i = 0; i < warehouse.length; i++) {
             if (warehouse[i] == null) {

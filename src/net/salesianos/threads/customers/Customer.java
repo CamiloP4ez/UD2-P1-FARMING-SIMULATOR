@@ -18,7 +18,7 @@ public class Customer extends Thread {
     public void run() {
         for (int i = 0; i < vegetablesAmount; i++) {
             try {
-                if (restaurant.isWarehouseFull() != 0) {
+                if (restaurant.availableSpace() != restaurant.getwarehouseSpace()) {
                     int number = (int) (Math.random() * 3) + 1;
                     Thread.sleep(number * 1000);
                     restaurant.eatVegetable();
