@@ -20,21 +20,22 @@ public class Farmer extends Thread {
     public void run() {
         for (int i = 0; i < vegetablesAmount; i++) {
             try {
-                if (restaurant.availableSpace() != 0) {
+                synchronized (restaurant) {
+                    while (restaurant.availableSpace() == 0) {
+                        System.out.printf("El granjero %s espera, no hay espacio disponible%n", this.name);
+                        restaurant.wait();
+                    }
                     String vegetable = Vegetables.getVegetable();
                     int number = (int) (Math.random() * 3) + 1;
-                    sleep(number * 1000);
+                    Thread.sleep(number * 1000);
                     restaurant.addVegetable(vegetable);
                     System.out.printf("Se ha producido una nueva verdura %s por el granjero %s%n", vegetable,
                             this.name);
-
-                } else {
-                    Thread.sleep(1000);
-
+                    restaurant.notifyAll();
                 }
 
                 // aqui agrega a un array de uso compartido :)
-            } catch (Exception e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 

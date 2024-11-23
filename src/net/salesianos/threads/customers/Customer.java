@@ -4,11 +4,12 @@ import net.salesianos.restaurants.Restaurant;
 
 public class Customer extends Thread {
 
+    private String name;
     private int vegetablesAmount;
     private Restaurant restaurant;
 
-    public Customer(int vegetablesAmount, Restaurant restaurant) {
-        super();
+    public Customer(String name, int vegetablesAmount, Restaurant restaurant) {
+        this.name = name;
         this.vegetablesAmount = vegetablesAmount;
         this.restaurant = restaurant;
 
@@ -18,15 +19,10 @@ public class Customer extends Thread {
     public void run() {
         for (int i = 0; i < vegetablesAmount; i++) {
             try {
-                if (restaurant.availableSpace() != restaurant.getwarehouseSpace()) {
-                    int number = (int) (Math.random() * 3) + 1;
-                    Thread.sleep(number * 1000);
-                    restaurant.eatVegetable();
-                    System.out.println(this.getId() + " ha consumido una verdura");
-                } else {
-                    Thread.sleep(1000);
-                    i--;
-                }
+                int number = (int) (Math.random() * 3) + 1;
+                Thread.sleep(number * 1000);
+                restaurant.eatVegetable(this.name);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -6,9 +6,9 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Restaurant restaurant = new Restaurant(15);
-        Farmer paco = new Farmer(10, restaurant, "paco");
+        Farmer paco = new Farmer(20, restaurant, "paco");
 
-        Customer ruben = new Customer(10, restaurant);
+        Customer ruben = new Customer("Pepe", 10, restaurant);
 
         paco.start();
         ruben.start();
