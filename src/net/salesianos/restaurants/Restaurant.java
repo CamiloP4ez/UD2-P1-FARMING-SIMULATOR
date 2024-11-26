@@ -18,8 +18,8 @@ public class Restaurant {
                 for (int i = 0; i < warehouse.length; i++) {
                     if (warehouse[i] == null) {
                         warehouse[i] = vegetable;
-                        System.out.println("Se ha producido una nueva verdura por el granjero " + vegetable +
-                                name);
+                        System.out.println("Se ha producido una nueva verdura " + vegetable + " por el granjero " +
+                                name + "\n");
                         notifyAll();
                         break;
                     }
@@ -33,13 +33,13 @@ public class Restaurant {
     public synchronized void eatVegetable(String name) {
         try {
             while (availableSpace() == this.warehouse.length) {
-                System.out.println("El cliente " + name + " espera, no hay verduras para consumir");
+                System.out.println("El cliente " + name + " espera, no hay verduras para consumir \n");
                 wait();
             }
             for (int i = 0; i < warehouse.length; i++) {
                 if (warehouse[i] != null) {
+                    System.out.println("El cliente " + name + " ha consumido " + warehouse[i] + "\n");
                     warehouse[i] = null;
-                    System.out.println("El cliente " + name + " ha consumido una verdura");
                     notifyAll();
                     break;
                 }
