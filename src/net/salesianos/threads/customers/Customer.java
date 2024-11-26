@@ -19,7 +19,7 @@ public class Customer extends Thread {
     public void run() {
         for (int i = 0; i < vegetablesAmount; i++) {
             try {
-                int number = (int) (Math.random() * 3) + 1;
+                int number = (int) (Math.random() * 5) + 1;
                 Thread.sleep(number * 1000);
                 restaurant.eatVegetable(this.name);
 

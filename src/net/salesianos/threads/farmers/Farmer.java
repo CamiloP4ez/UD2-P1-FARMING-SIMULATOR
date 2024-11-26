@@ -22,7 +22,7 @@ public class Farmer extends Thread {
             try {
 
                 String vegetable = Vegetables.getVegetable();
-                int number = (int) (Math.random() * 3) + 1;
+                int number = (int) (Math.random() * 2) + 1;
                 sleep(number * 1000);
 
                 restaurant.addVegetable(vegetable, this.name);
