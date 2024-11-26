@@ -47,4 +47,5 @@ La salida de este programa depende de la ejecución concurrente de los hilos, pe
    - "El cliente PEPE espera, no hay verduras para consumir"
 
 ## Ejemplo de Salida
+![image](https://github.com/user-attachments/assets/523704f4-0dd4-4dda-9933-f881b4c77d52)
 
