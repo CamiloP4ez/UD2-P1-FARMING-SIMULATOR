@@ -11,9 +11,7 @@ public class App {
         Customer ruben = new Customer("PEPE", 10, restaurant);
 
         paco.start();
-        paco.setPriority(Thread.MIN_PRIORITY);
         ruben.start();
-        ruben.setPriority(Thread.MAX_PRIORITY);
 
         try {
             paco.join();
