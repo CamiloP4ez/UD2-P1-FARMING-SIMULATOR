@@ -6,14 +6,12 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Restaurant restaurant = new Restaurant(5);
-        Farmer paco = new Farmer(10, restaurant, "PACO");
+        Farmer paco = new Farmer(5, restaurant, "PACO");
 
-        Customer ruben = new Customer("PEPE", 10, restaurant);
+        Customer ruben = new Customer("PEPE", 5, restaurant);
 
         paco.start();
-        paco.setPriority(Thread.MIN_PRIORITY);
         ruben.start();
-        ruben.setPriority(Thread.MAX_PRIORITY);
 
         try {
             paco.join();
